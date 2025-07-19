@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstatBat - États des lieux professionnels en Belgique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+        
+        :root {
+            --color-primary: #1A4B84; /* Bleu profond */
+            --color-secondary: #E8A87C; /* Pêche chaud */
+            --color-light: #F0F8FF; /* Bleu très clair */
+            --color-dark: #0F3057; /* Bleu foncé */
+            --color-accent: #5D9CEC; /* Bleu ciel */
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: var(--color-light);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-pattern {
+            background-color: var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(26, 75, 132, 0.85);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(26, 75, 132, 0.2), 0 4px 6px -2px rgba(26, 75, 132, 0.1);
+        }
+        
+        .pricing-card:hover {
+            border-color: var(--color-secondary);
+        }
+        
+        .tab-active {
+            color: var(--color-primary);
+            border-bottom: 3px solid var(--color-secondary);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d99b6e;
+        }
+
+        .text-primary {
+            color: var(--color-primary);
+        }
+
+        .text-secondary {
+            color: var(--color-secondary);
+        }
+
+        .bg-primary {
+            background-color: var(--color-primary);
+        }
+
+        .bg-secondary {
+            background-color: var(--color-secondary);
+        }
+
+        .bg-light {
+            background-color: var(--color-light);
+        }
+
+        .border-primary {
+            border-color: var(--color-primary);
+        }
+
+        .border-secondary {
+            border-color: var(--color-secondary);
+        }
+
+        .technical-icon {
+            color: var(--color-secondary);
+        }
+
+        .technical-highlight {
+            border-left: 4px solid var(--color-secondary);
+            background-color: rgba(232, 168, 124, 0.1);
+        }
+        
+        .building-illustration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold" style="color: #1A4B84;">Constat<span style="color: #E8A87C;">Bat</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-secondary transition">Qui sommes-nous</a>
+                <a href="#services" class="text-gray-700 hover:text-secondary transition">Services</a>
+                <a href="#pricing" class="text-gray-700 hover:text-secondary transition">Tarifs</a>
+                <a href="#why-us" class="text-gray-700 hover:text-secondary transition">Pourquoi nous</a>
+                <a href="#contact" class="text-gray-700 hover:text-secondary transition">Contact</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="text-gray-700 hover:text-secondary py-2 transition">Qui sommes-nous</a>
+                <a href="#services" class="text-gray-700 hover:text-secondary py-2 transition">Services</a>
+                <a href="#pricing" class="text-gray-700 hover:text-secondary py-2 transition">Tarifs</a>
+                <a href="#why-us" class="text-gray-700 hover:text-secondary py-2 transition">Pourquoi nous</a>
+                <a href="#contact" class="text-gray-700 hover:text-secondary py-2 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Building Illustration -->
+    <header class="hero-pattern pt-28 pb-20">
+        <!-- Building Illustration SVG -->
+        <div class="building-illustration">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="3" dy="3" stdDeviation="5" flood-opacity="0.3"/>
+                    </filter>
+                    <pattern id="wood" patternUnits="userSpaceOnUse" width="100" height="100">
+                        <rect width="100" height="100" fill="#E8A87C" opacity="0.1"/>
+                        <rect width="50" height="100" fill="#E8A87C" opacity="0.2"/>
+                    </pattern>
+                    <pattern id="grass" patternUnits="userSpaceOnUse" width="10" height="10">
+                        <rect width="10" height="10" fill="#4A7C59" opacity="0.2"/>
+                        <rect width="5" height="5" fill="#4A7C59" opacity="0.3"/>
+                    </pattern>
+                </defs>
+                
+                <!-- Background -->
+                <rect width="1200" height="800" fill="#F0F8FF" opacity="0.1"/>
+                
+                <!-- Ground -->
+                <rect x="0" y="600" width="1200" height="200" fill="url(#grass)"/>
+                
+                <!-- Main Building -->
+                <rect x="300" y="200" width="600" height="400" fill="#F0F8FF" stroke="#1A4B84" stroke-width="2" filter="url(#shadow)"/>
+                
+                <!-- Windows -->
+                <rect x="350" y="250" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                <rect x="350" y="400" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                <rect x="500" y="250" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                <rect x="500" y="400" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                <rect x="650" y="250" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                <rect x="650" y="400" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                <rect x="770" y="250" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                <rect x="770" y="400" width="80" height="120" fill="#5D9CEC" stroke="#1A4B84" stroke-width="2"/>
+                
+                <!-- Door -->
+                <rect x="550" y="500" width="100" height="100" fill="#1A4B84" stroke="#1A4B84" stroke-width="2"/>
+                
+                <!-- Roof -->
+                <polygon points="250,200 600,100 950,200" fill="#E8A87C" stroke="#1A4B84" stroke-width="2" filter="url(#shadow)"/>
+                
+                <!-- Trees -->
+                <circle cx="200" cy="550" r="50" fill="#4A7C59" filter="url(#shadow)"/>
+                <rect x="190" y="550" width="20" height="80" fill="#6B4226"/>
+                
+                <circle cx="1000" cy="550" r="60" fill="#4A7C59" filter="url(#shadow)"/>
+                <rect x="990" y="550" width="20" height="90" fill="#6B4226"/>
+                
+                <!-- Bushes -->
+                <circle cx="400" cy="580" r="25" fill="#4A7C59" opacity="0.8"/>
+                <circle cx="800" cy="580" r="25" fill="#4A7C59" opacity="0.8"/>
+                <circle cx="450" cy="590" r="20" fill="#4A7C59" opacity="0.8"/>
+                <circle cx="750" cy="590" r="20" fill="#4A7C59" opacity="0.8"/>
+                
+                <!-- Walkway -->
+                <rect x="550" y="600" width="100" height="100" fill="#E8A87C" opacity="0.5"/>
+                
+                <!-- Floor Plan Lines -->
+                <line x1="300" y1="400" x2="900" y2="400" stroke="#1A4B84" stroke-width="1" stroke-dasharray="5,5"/>
+                <line x1="600" y1="200" x2="600" y2="600" stroke="#1A4B84" stroke-width="1" stroke-dasharray="5,5"/>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 hero-content">
+            <div class="flex flex-col items-center">
+                <div class="text-white text-center max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">États des lieux professionnels en Belgique</h1>
+                    <p class="text-xl mb-8">Spécialistes des états des lieux locatifs d'entrée et de sortie à Bruxelles et en Wallonie. Rigueur, transparence et traçabilité pour prévenir les litiges.</p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-secondary hover:bg-secondary btn-secondary text-white font-medium py-3 px-6 rounded-lg transition text-center">Demander un devis</a>
+                        <a href="#services" class="bg-white hover:bg-light text-primary font-medium py-3 px-6 rounded-lg transition text-center">Nos services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">🏢 Qui sommes-nous ?</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">
+                    Spécialistes des états des lieux locatifs d'entrée et de sortie, ainsi que de la reconstitution de dossiers d'intervention ultérieurs. 
+                    Notre mission : assurer rigueur, transparence et traçabilité, afin de prévenir les litiges entre propriétaires, locataires et agences immobilières.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="flex flex-col items-center max-w-xs text-center p-6 bg-light rounded-lg">
+                    <div class="bg-white p-4 rounded-full mb-4 shadow-md">
+                        <i class="fas fa-balance-scale text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-primary">Impartialité</h3>
+                    <p>Nous intervenons en tant que tiers neutre pour garantir l'équité entre toutes les parties.</p>
+                </div>
+                
+                <div class="flex flex-col items-center max-w-xs text-center p-6 bg-light rounded-lg">
+                    <div class="bg-white p-4 rounded-full mb-4 shadow-md">
+                        <i class="fas fa-file-alt text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-primary">Documentation</h3>
+                    <p>Nos rapports détaillés incluent photos haute résolution et descriptions précises.</p>
+                </div>
+                
+                <div class="flex flex-col items-center max-w-xs text-center p-6 bg-light rounded-lg">
+                    <div class="bg-white p-4 rounded-full mb-4 shadow-md">
+                        <i class="fas fa-clock text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-primary">Réactivité</h3>
+                    <p>Rendez-vous sous 48h et livraison des rapports dans les 24h suivant l'intervention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">🔍 Nos services</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">
+                    Des prestations complètes pour sécuriser vos locations et prévenir les litiges.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="bg-light w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 border-secondary">
+                        <i class="fas fa-home text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">État des lieux d'entrée & de sortie</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Constat détaillé pièce par pièce</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Rapport PDF transmis aux deux parties</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Respect des normes juridiques</span>
+                        </li>
+                    </ul>
+                    <a href="#pricing" class="inline-block text-secondary hover:text-primary font-medium">
+                        Voir les tarifs <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="bg-light w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 border-secondary">
+                        <i class="fas fa-folder-open text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Reconstitution de dossier</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Reconstitution historique du bien</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Collecte des documents manquants</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Dossier complet à jour</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-secondary hover:text-primary font-medium">
+                        Demander un devis <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="bg-light w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 border-secondary">
+                        <i class="fas fa-tools text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">État des lieux avant/après travaux</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Expertises précises</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Comparaisons avant/après</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Documentation pour assurances</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-secondary hover:text-primary font-medium">
+                        Demander un devis <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 (NEW) -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold px-3 py-1 transform rotate-0">
+                        NOUVEAU
+                    </div>
+                    <div class="bg-light w-16 h-16 rounded-full flex items-center justify-center mb-6 border-2 border-secondary">
+                        <i class="fas fa-broom text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Service de nettoyage</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Nettoyage de sortie</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Nettoyage après travaux</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mt-1 mr-2"></i>
+                            <span>Service professionnel sur mesure</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-secondary hover:text-primary font-medium">
+                        Demander un devis <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Expertise Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-light p-6 rounded-lg shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center">
+                        <div class="relative">
+                            <div class="w-48 h-48 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fas fa-cogs text-6xl text-light"></i>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-secondary flex items-center justify-center">
+                                <i class="fas fa-search text-2xl text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 md:pl-8">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">Notre expertise technique</h3>
+                        <div class="technical-highlight pl-4 py-2 mb-4">
+                            <p class="text-lg">Nous utilisons des outils de pointe et des méthodologies rigoureuses pour garantir des constats précis et incontestables.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-ruler-combined text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold">Mesures précises</h4>
+                                    <p class="text-sm">Relevés dimensionnels exacts de chaque pièce et élément</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-camera text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold">Photographie HD</h4>
+                                    <p class="text-sm">Documentation visuelle complète de chaque défaut</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-tachometer-alt text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold">Relevés de compteurs</h4>
+                                    <p class="text-sm">Enregistrement précis des index eau, gaz, électricité</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-paint-roller text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold">Analyse des revêtements</h4>
+                                    <p class="text-sm">Évaluation de l'état des murs, sols et plafonds</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">💶 Nos tarifs</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">
+                    Tarifs indicatifs basés sur le marché et ajustables selon les spécificités du bien.
+                </p>
+            </div>
+            
+            <!-- Pricing Tabs -->
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button id="tab-market" class="tab-active px-6 py-3 text-lg font-medium border-b-2 focus:outline-none">
+                        Tarifs du marché
+                    </button>
+                    <button id="tab-our" class="px-6 py-3 text-lg font-medium border-b-2 text-gray-500 focus:outline-none">
+                        Nos tarifs
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Market Pricing Table -->
+            <div id="pricing-market" class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+                    <thead>
+                        <tr class="bg-primary text-white">
+                            <th class="py-4 px-6 text-left">Type de bien</th>
+                            <th class="py-4 px-6 text-center">Entrée</th>
+                            <th class="py-4 px-6 text-center">Sortie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b hover:bg-light">
+                            <td class="py-4 px-6 font-medium">Studio (< 30 m²)</td>
+                            <td class="py-4 px-6 text-center">100 € à 140 €</td>
+                            <td class="py-4 px-6 text-center">90 € à 130 €</td>
+                        </tr>
+                        <tr class="border-b hover:bg-light">
+                            <td class="py-4 px-6 font-medium">Appartement 1‑2 chambres</td>
+                            <td class="py-4 px-6 text-center">130 € à 165 €</td>
+                            <td class="py-4 px-6 text-center">115 € à 150 €</td>
+                        </tr>
+                        <tr class="border-b hover:bg-light">
+                            <td class="py-4 px-6 font-medium">Appartement 3 chambres</td>
+                            <td class="py-4 px-6 text-center">155 € à 180 €</td>
+                            <td class="py-4 px-6 text-center">135 € à 160 €</td>
+                        </tr>
+                        <tr class="border-b hover:bg-light">
+                            <td class="py-4 px-6 font-medium">Maison/villa 1‑2 chambres</td>
+                            <td class="py-4 px-6 text-center">165 € à 205 €</td>
+                            <td class="py-4 px-6 text-center">140 € à 185 €</td>
+                        </tr>
+                        <tr class="hover:bg-light">
+                            <td class="py-4 px-6 font-medium">Maison/villa 3‑4 chambres</td>
+                            <td class="py-4 px-6 text-center">185 € à 250 €</td>
+                            <td class="py-4 px-6 text-center">155 € à 220 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="mt-6 text-sm text-gray-600 text-center">
+                    <p>*Tarifs relevés chez Expertibat BE, Beexime BE, Selexio BE, CT Expert Immo etc.</p>
+                </div>
+                
+                <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold mb-4 text-primary">Suppléments fréquents :</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-plus-circle text-secondary mr-2"></i>
+                            <span>Pièce additionnelle : +10 à 15 €</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-plus-circle text-secondary mr-2"></i>
+                            <span>Meublé : +30 % à +50 %</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-plus-circle text-secondary mr-2"></i>
+                            <span>Caves/garages/jardins : +8 à 15 € par espace</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Our Pricing Cards -->
+            <div id="pricing-our" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                    <h3 class="text-xl font-bold mb-2 text-primary">Studio / Petit appartement</h3>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">120 €</span>
+                        <span class="text-gray-500 ml-2">entrée</span>
+                    </div>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">110 €</span>
+                        <span class="text-gray-500 ml-2">sortie</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Jusqu'à 30m²</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Rapport complet avec photos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Livraison sous 24h</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                        Demander un devis
+                    </a>
+                </div>
+                
+                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                    <h3 class="text-xl font-bold mb-2 text-primary">Appartement 2 chambres</h3>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">160 €</span>
+                        <span class="text-gray-500 ml-2">entrée</span>
+                    </div>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">140 €</span>
+                        <span class="text-gray-500 ml-2">sortie</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Jusqu'à 2 chambres</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Rapport complet avec photos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Livraison sous 24h</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                        Demander un devis
+                    </a>
+                </div>
+                
+                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                    <h3 class="text-xl font-bold mb-2 text-primary">Appartement 3 chambres</h3>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">200 €</span>
+                        <span class="text-gray-500 ml-2">entrée</span>
+                    </div>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">180 €</span>
+                        <span class="text-gray-500 ml-2">sortie</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>3 chambres</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Rapport complet avec photos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Livraison sous 24h</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                        Demander un devis
+                    </a>
+                </div>
+                
+                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                    <h3 class="text-xl font-bold mb-2 text-primary">Maison 2 chambres + jardin</h3>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">220 €</span>
+                        <span class="text-gray-500 ml-2">entrée</span>
+                    </div>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-3xl font-bold text-secondary">200 €</span>
+                        <span class="text-gray-500 ml-2">sortie</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>2 chambres + espaces extérieurs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Rapport complet avec photos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Livraison sous 24h</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                        Demander un devis
+                    </a>
+                </div>
+                
+                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                    <h3 class="text-xl font-bold mb-2 text-primary">Maison 4 chambres & plus</h3>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-2xl font-bold text-secondary">Sur devis</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>4 chambres et plus</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Grandes surfaces</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Espaces extérieurs complexes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Tarif personnalisé</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                        Demander un devis
+                    </a>
+                </div>
+                
+                <!-- NEW: Service de nettoyage pricing card -->
+                <div class="pricing-card border-2 border-secondary rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold px-3 py-1 transform rotate-0">
+                        NOUVEAU
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Service de nettoyage</h3>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-2xl font-bold text-secondary">Sur devis</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Nettoyage de sortie</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Nettoyage après travaux</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Tarif selon superficie et état</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Service professionnel</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-lg border border-secondary shadow-md">
+                <h4 class="text-xl font-semibold mb-4 text-primary">Modalités & engagement</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span>Intervention dans un rayon de 30 km, frais kilométriques en supplément au-delà</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span>Rendez-vous planifiés 48 h à l'avance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span>Livraison des rapports sous 24 h par email (version imprimée disponible sur demande)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span>Annulation possible jusqu'à 24 h avant, sans frais</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span>En cas de facturation tardive (<24 h avant), frais fixes de 75 €</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">🌟 Pourquoi nous choisir ?</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">
+                    Notre expertise et notre professionnalisme font la différence pour sécuriser vos relations locatives.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-light p-6 rounded-lg shadow-md flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fas fa-balance-scale text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-primary">Impartialité et neutralité</h3>
+                        <p>Nous intervenons en toute transparence pour éviter les conflits, en tant que tiers neutre entre propriétaires et locataires.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-light p-6 rounded-lg shadow-md flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fas fa-file-alt text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-primary">Rapports professionnels</h3>
+                        <p>Descriptifs exhaustifs, photographies haute résolution et commentaires ciblés pour une documentation complète et précise.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-light p-6 rounded-lg shadow-md flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fas fa-gavel text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-primary">Expertise juridique</h3>
+                        <p>Connaissance des décrets (Belgique & France), vétusté, obligations locatives pour des rapports conformes à la législation.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-light p-6 rounded-lg shadow-md flex">
+                    <div class="mr-4 text-secondary">
+                        <i class="fas fa-bolt text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-primary">Réactivité et disponibilité</h3>
+                        <p>Rendez-vous sous 48 h, livrables dans les 24 h suivant l'intervention pour un service rapide et efficace.</p>
+                    </div>
+                </div>
+                
+                <!-- NEW: Service complet highlight -->
+                <div class="bg-light p-6 rounded-lg shadow-md flex md:col-span-2">
+                    <div class="mr-4 text-secondary">
+                        <i class="fas fa-hands-helping text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-primary">Service complet de A à Z</h3>
+                        <p>De la constatation à la constitution de dossier, en passant par le nettoyage professionnel, nous vous accompagnons à chaque étape pour sécuriser votre relation locative et faciliter les transitions entre occupants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Contact & devis</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">
+                    Contactez-nous pour obtenir un devis personnalisé ou pour toute information complémentaire.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8 mt-12">
+                <div class="md:w-1/2">
+                    <form class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-6 text-primary">Demande de devis</h3>
+                        
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="property-type" class="block text-gray-700 font-medium mb-2">Type de bien</label>
+                            <select id="property-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                                <option value="">Sélectionnez</option>
+                                <option value="studio">Studio</option>
+                                <option value="apt-1-2">Appartement 1-2 chambres</option>
+                                <option value="apt-3">Appartement 3 chambres</option>
+                                <option value="house-1-2">Maison 1-2 chambres</option>
+                                <option value="house-3-4">Maison 3-4 chambres</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="service-type" class="block text-gray-700 font-medium mb-2">Type de service</label>
+                            <select id="service-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                                <option value="">Sélectionnez</option>
+                                <option value="entry">État des lieux d'entrée</option>
+                                <option value="exit">État des lieux de sortie</option>
+                                <option value="both">Entrée et sortie</option>
+                                <option value="reconstruction">Reconstitution de dossier</option>
+                                <option value="works">État des lieux avant/après travaux</option>
+                                <option value="cleaning">Service de nettoyage</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-medium py-3 px-4 rounded-lg transition">
+                            Envoyer ma demande
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-primary text-white p-6 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold mb-6">Informations de contact</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="mr-4 text-secondary">
+                                    <i class="fas fa-map-marker-alt text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Adresse</h4>
+                                    <p>Bruxelles et Wallonie</p>
+                                    <p>Rayon d'intervention : 30 km</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mr-4 text-secondary">
+                                    <i class="fas fa-phone text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Téléphone</h4>
+                                    <p>[Votre numéro]</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mr-4 text-secondary">
+                                    <i class="fas fa-envelope text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p>[Votre e-mail]</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mr-4 text-secondary">
+                                    <i class="fas fa-clock text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Horaires</h4>
+                                    <p>Lundi - Vendredi : 8h30 - 18h00</p>
+                                    <p>Samedi : 9h00 - 13h00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Suivez-nous</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-light transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-light transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-light transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4">Constat<span class="text-secondary">Bat</span></h3>
+                    <p class="max-w-xs">Spécialistes des états des lieux locatifs en Belgique. Rigueur, transparence et traçabilité pour prévenir les litiges.</p>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-secondary transition">Qui sommes-nous</a></li>
+                        <li><a href="#services" class="hover:text-secondary transition">Nos services</a></li>
+                        <li><a href="#pricing" class="hover:text-secondary transition">Tarifs</a></li>
+                        <li><a href="#why-us" class="hover:text-secondary transition">Pourquoi nous choisir</a></li>
+                        <li><a href="#contact" class="hover:text-secondary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Zone d'intervention</h4>
+                    <ul class="space-y-2">
+                        <li>Bruxelles</li>
+                        <li>Wallonie</li>
+                        <li>Rayon de 30 km</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-secondary mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2023 ConstatBat. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Pricing Tabs
+        const tabMarket = document.getElementById('tab-market');
+        const tabOur = document.getElementById('tab-our');
+        const pricingMarket = document.getElementById('pricing-market');
+        const pricingOur = document.getElementById('pricing-our');
+        
+        tabMarket.addEventListener('click', () => {
+            tabMarket.classList.add('tab-active');
+            tabMarket.classList.remove('text-gray-500');
+            tabOur.classList.remove('tab-active');
+            tabOur.classList.add('text-gray-500');
+            
+            pricingMarket.classList.remove('hidden');
+            pricingOur.classList.add('hidden');
+        });
+        
+        tabOur.addEventListener('click', () => {
+            tabOur.classList.add('tab-active');
+            tabOur.classList.remove('text-gray-500');
+            tabMarket.classList.remove('tab-active');
+            tabMarket.classList.add('text-gray-500');
+            
+            pricingOur.classList.remove('hidden');
+            pricingMarket.classList.add('hidden');
+        });
+        
+        // Form Submission (Demo)
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous contacterons dans les plus brefs délais.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
