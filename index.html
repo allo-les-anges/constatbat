@@ -745,8 +745,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-light">
+        <section id="contact" class="py-16 bg-light">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">Contact & devis</h2>
@@ -758,27 +757,27 @@
             
             <div class="flex flex-col md:flex-row gap-8 mt-12">
                 <div class="md:w-1/2">
-                    <form class="bg-white p-6 rounded-lg shadow-md">
+                    <form action="https://formspree.io/f/myzjgeka" method="POST" class="bg-white p-6 rounded-lg shadow-md">
                         <h3 class="text-xl font-bold mb-6 text-primary">Demande de devis</h3>
                         
                         <div class="mb-4">
                             <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <input type="text" id="name" name="Nom complet" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary" required>
                         </div>
                         
                         <div class="mb-4">
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <input type="email" id="email" name="_replyto" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary" required>
                         </div>
                         
                         <div class="mb-4">
                             <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
-                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <input type="tel" id="phone" name="Téléphone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
                         </div>
                         
                         <div class="mb-4">
                             <label for="property-type" class="block text-gray-700 font-medium mb-2">Type de bien</label>
-                            <select id="property-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <select id="property-type" name="Type de bien" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
                                 <option value="">Sélectionnez</option>
                                 <option value="studio">Studio</option>
                                 <option value="apt-1-2">Appartement 1-2 chambres</option>
@@ -791,7 +790,7 @@
                         
                         <div class="mb-4">
                             <label for="service-type" class="block text-gray-700 font-medium mb-2">Type de service</label>
-                            <select id="service-type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <select id="service-type" name="Type de service" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
                                 <option value="">Sélectionnez</option>
                                 <option value="entry">État des lieux d'entrée</option>
                                 <option value="exit">État des lieux de sortie</option>
@@ -804,8 +803,10 @@
                         
                         <div class="mb-6">
                             <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
+                            <textarea id="message" name="Message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary" required></textarea>
                         </div>
+                        
+                        <input type="hidden" name="_subject" value="Nouvelle demande de devis ConstatBat">
                         
                         <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-medium py-3 px-4 rounded-lg transition">
                             Envoyer ma demande
@@ -881,7 +882,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-primary text-white py-10">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between">
@@ -896,7 +896,7 @@
                         <li><a href="#about" class="hover:text-secondary transition">Qui sommes-nous</a></li>
                         <li><a href="#services" class="hover:text-secondary transition">Nos services</a></li>
                         <li><a href="#pricing" class="hover:text-secondary transition">Tarifs</a></li>
-                        <li><a href="#why-us" class="hover:text-secondary transition">Pourquoi nous choisir</a></li>
+                        <li><a href="#why-choose-us" class="hover:text-secondary transition">Pourquoi nous choisir</a></li>
                         <li><a href="#contact" class="hover:text-secondary transition">Contact</a></li>
                     </ul>
                 </div>
@@ -906,13 +906,13 @@
                     <ul class="space-y-2">
                         <li>Bruxelles</li>
                         <li>Wallonie</li>
-                        <li>Rayon de 30 km</li>
+                        <li>Rayon de 100 km</li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-secondary mt-8 pt-8 text-center text-sm">
-                <p>&copy; 2023 ConstatBat. Tous droits réservés.</p>
+                <p>&copy; 2025 ConstatBat. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -922,9 +922,11 @@
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
         
         // Smooth Scrolling for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -935,52 +937,51 @@
                 const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
+                    // Adjust 80px for a potential fixed header
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 80, 
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
+                    // Close mobile menu if open after clicking a link
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
                 }
             });
         });
         
-        // Pricing Tabs
+        // Pricing Tabs (if you have them)
         const tabMarket = document.getElementById('tab-market');
         const tabOur = document.getElementById('tab-our');
         const pricingMarket = document.getElementById('pricing-market');
         const pricingOur = document.getElementById('pricing-our');
         
-        tabMarket.addEventListener('click', () => {
-            tabMarket.classList.add('tab-active');
-            tabMarket.classList.remove('text-gray-500');
-            tabOur.classList.remove('tab-active');
-            tabOur.classList.add('text-gray-500');
+        // Ensure elements exist before adding event listeners
+        if (tabMarket && tabOur && pricingMarket && pricingOur) {
+            tabMarket.addEventListener('click', () => {
+                tabMarket.classList.add('tab-active');
+                tabMarket.classList.remove('text-gray-500');
+                tabOur.classList.remove('tab-active');
+                tabOur.classList.add('text-gray-500');
+                
+                pricingMarket.classList.remove('hidden');
+                pricingOur.classList.add('hidden');
+            });
             
-            pricingMarket.classList.remove('hidden');
-            pricingOur.classList.add('hidden');
-        });
-        
-        tabOur.addEventListener('click', () => {
-            tabOur.classList.add('tab-active');
-            tabOur.classList.remove('text-gray-500');
-            tabMarket.classList.remove('tab-active');
-            tabMarket.classList.add('text-gray-500');
-            
-            pricingOur.classList.remove('hidden');
-            pricingMarket.classList.add('hidden');
-        });
-        
-        // Form Submission (Demo)
-        const contactForm = document.querySelector('form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Merci pour votre demande ! Nous vous contacterons dans les plus brefs délais.');
-            contactForm.reset();
-        });
+            tabOur.addEventListener('click', () => {
+                tabOur.classList.add('tab-active');
+                tabOur.classList.remove('text-gray-500');
+                tabMarket.classList.remove('tab-active');
+                tabMarket.classList.add('text-gray-500');
+                
+                pricingOur.classList.remove('hidden');
+                pricingMarket.classList.add('hidden');
+            });
+        }
+
+        // The JavaScript for form submission (demo or fetch) has been removed.
+        // The form now relies directly on the 'action' attribute pointing to Formspree for submission.
     </script>
 </body>
 </html>
