@@ -391,295 +391,227 @@
 
     <!-- Pricing Section -->
     <section id="pricing" class="py-16 bg-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-4">💶 Nos tarifs</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-lg max-w-3xl mx-auto">
-                    Tarifs indicatifs basés sur le marché et ajustables selon les spécificités du bien.
-                </p>
-            </div>
-            
-            <!-- Pricing Tabs -->
-            <div class="flex justify-center mb-8">
-                <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button id="tab-market" class="tab-active px-6 py-3 text-lg font-medium border-b-2 focus:outline-none">
-                        Tarifs du marché
-                    </button>
-                    <button id="tab-our" class="px-6 py-3 text-lg font-medium border-b-2 text-gray-500 focus:outline-none">
-                        Nos tarifs
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Market Pricing Table -->
-            <div id="pricing-market" class="overflow-x-auto">
-                <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-                    <thead>
-                        <tr class="bg-primary text-white">
-                            <th class="py-4 px-6 text-left">Type de bien</th>
-                            <th class="py-4 px-6 text-center">Entrée</th>
-                            <th class="py-4 px-6 text-center">Sortie</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b hover:bg-light">
-                            <td class="py-4 px-6 font-medium">Studio (< 30 m²)</td>
-                            <td class="py-4 px-6 text-center">100 € à 140 €</td>
-                            <td class="py-4 px-6 text-center">90 € à 130 €</td>
-                        </tr>
-                        <tr class="border-b hover:bg-light">
-                            <td class="py-4 px-6 font-medium">Appartement 1‑2 chambres</td>
-                            <td class="py-4 px-6 text-center">130 € à 165 €</td>
-                            <td class="py-4 px-6 text-center">115 € à 150 €</td>
-                        </tr>
-                        <tr class="border-b hover:bg-light">
-                            <td class="py-4 px-6 font-medium">Appartement 3 chambres</td>
-                            <td class="py-4 px-6 text-center">155 € à 180 €</td>
-                            <td class="py-4 px-6 text-center">135 € à 160 €</td>
-                        </tr>
-                        <tr class="border-b hover:bg-light">
-                            <td class="py-4 px-6 font-medium">Maison/villa 1‑2 chambres</td>
-                            <td class="py-4 px-6 text-center">165 € à 205 €</td>
-                            <td class="py-4 px-6 text-center">140 € à 185 €</td>
-                        </tr>
-                        <tr class="hover:bg-light">
-                            <td class="py-4 px-6 font-medium">Maison/villa 3‑4 chambres</td>
-                            <td class="py-4 px-6 text-center">185 € à 250 €</td>
-                            <td class="py-4 px-6 text-center">155 € à 220 €</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="mt-6 text-sm text-gray-600 text-center">
-                    <p>*Tarifs relevés chez Expertibat BE, Beexime BE, Selexio BE, CT Expert Immo etc.</p>
-                </div>
-                
-                <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
-                    <h4 class="text-xl font-semibold mb-4 text-primary">Suppléments fréquents :</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-plus-circle text-secondary mr-2"></i>
-                            <span>Pièce additionnelle : +10 à 15 €</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-plus-circle text-secondary mr-2"></i>
-                            <span>Meublé : +30 % à +50 %</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-plus-circle text-secondary mr-2"></i>
-                            <span>Caves/garages/jardins : +8 à 15 € par espace</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Our Pricing Cards -->
-            <div id="pricing-our" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
-                    <h3 class="text-xl font-bold mb-2 text-primary">Studio / Petit appartement</h3>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">120 €</span>
-                        <span class="text-gray-500 ml-2">entrée</span>
-                    </div>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">110 €</span>
-                        <span class="text-gray-500 ml-2">sortie</span>
-                    </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Jusqu'à 30m²</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Rapport complet avec photos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Livraison sous 24h</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
-                        Demander un devis
-                    </a>
-                </div>
-                
-                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
-                    <h3 class="text-xl font-bold mb-2 text-primary">Appartement 2 chambres</h3>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">160 €</span>
-                        <span class="text-gray-500 ml-2">entrée</span>
-                    </div>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">140 €</span>
-                        <span class="text-gray-500 ml-2">sortie</span>
-                    </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Jusqu'à 2 chambres</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Rapport complet avec photos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Livraison sous 24h</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
-                        Demander un devis
-                    </a>
-                </div>
-                
-                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
-                    <h3 class="text-xl font-bold mb-2 text-primary">Appartement 3 chambres</h3>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">200 €</span>
-                        <span class="text-gray-500 ml-2">entrée</span>
-                    </div>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">180 €</span>
-                        <span class="text-gray-500 ml-2">sortie</span>
-                    </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>3 chambres</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Rapport complet avec photos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Livraison sous 24h</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
-                        Demander un devis
-                    </a>
-                </div>
-                
-                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
-                    <h3 class="text-xl font-bold mb-2 text-primary">Maison 2 chambres + jardin</h3>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">220 €</span>
-                        <span class="text-gray-500 ml-2">entrée</span>
-                    </div>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-3xl font-bold text-secondary">200 €</span>
-                        <span class="text-gray-500 ml-2">sortie</span>
-                    </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>2 chambres + espaces extérieurs</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Rapport complet avec photos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Livraison sous 24h</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
-                        Demander un devis
-                    </a>
-                </div>
-                
-                <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
-                    <h3 class="text-xl font-bold mb-2 text-primary">Maison 4 chambres & plus</h3>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-2xl font-bold text-secondary">Sur devis</span>
-                    </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>4 chambres et plus</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Grandes surfaces</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Espaces extérieurs complexes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Tarif personnalisé</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
-                        Demander un devis
-                    </a>
-                </div>
-                
-                <!-- NEW: Service de nettoyage pricing card -->
-                <div class="pricing-card border-2 border-secondary rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold px-3 py-1 transform rotate-0">
-                        NOUVEAU
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-primary">Service de nettoyage</h3>
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-2xl font-bold text-secondary">Sur devis</span>
-                    </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Nettoyage de sortie</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Nettoyage après travaux</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Tarif selon superficie et état</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
-                            <span>Service professionnel</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
-                        Demander un devis
-                    </a>
-                </div>
-            </div>
-            
-            <div class="mt-12 bg-white p-6 rounded-lg border border-secondary shadow-md">
-                <h4 class="text-xl font-semibold mb-4 text-primary">Modalités & engagement</h4>
-                <ul class="space-y-2">
-                    <li class="flex items-start">
-                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
-                        <span>Intervention dans un rayon de 30 km de Bruxelles et de Mons, frais kilométriques en supplément au-delà</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
-                        <span>Rendez-vous planifiés 48 h à l'avance</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
-                        <span>Livraison des rapports sous 24 h par email (version imprimée disponible sur demande)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
-                        <span>Annulation possible jusqu'à 24 h avant, sans frais</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
-                        <span>En cas de facturation tardive (<24 h avant), frais fixes de 75 €</span>
-                    </li>
-                </ul>
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-4">💶 Nos tarifs</h2>
+            <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+            <p class="text-lg max-w-3xl mx-auto">
+                Des tarifs transparents et ajustables selon les spécificités du bien, pour une prestation de qualité.
+            </p>
+        </div>
+
+        <div class="flex justify-center mb-8">
+            <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button id="tab-our" class="tab-active px-6 py-3 text-lg font-medium border-b-2 focus:outline-none">
+                    Nos tarifs
+                </button>
             </div>
         </div>
-    </section>
+
+        <div id="pricing-our" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                <h3 class="text-xl font-bold mb-2 text-primary">Studio / Petit appartement</h3>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">120 €</span>
+                    <span class="text-gray-500 ml-2">entrée</span>
+                </div>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">110 €</span>
+                    <span class="text-gray-500 ml-2">sortie</span>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Jusqu'à 30m²</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Rapport complet avec photos</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Livraison sous 24h</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                    Demander un devis
+                </a>
+            </div>
+
+            <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                <h3 class="text-xl font-bold mb-2 text-primary">Appartement 2 chambres</h3>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">160 €</span>
+                    <span class="text-gray-500 ml-2">entrée</span>
+                </div>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">140 €</span>
+                    <span class="text-gray-500 ml-2">sortie</span>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Jusqu'à 2 chambres</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Rapport complet avec photos</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Livraison sous 24h</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                    Demander un devis
+                </a>
+            </div>
+
+            <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                <h3 class="text-xl font-bold mb-2 text-primary">Appartement 3 chambres</h3>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">200 €</span>
+                    <span class="text-gray-500 ml-2">entrée</span>
+                </div>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">180 €</span>
+                    <span class="text-gray-500 ml-2">sortie</span>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>3 chambres</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Rapport complet avec photos</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Livraison sous 24h</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                    Demander un devis
+                </a>
+            </div>
+
+            <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                <h3 class="text-xl font-bold mb-2 text-primary">Maison 2 chambres + jardin</h3>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">220 €</span>
+                    <span class="text-gray-500 ml-2">entrée</span>
+                </div>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-3xl font-bold text-secondary">200 €</span>
+                    <span class="text-gray-500 ml-2">sortie</span>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>2 chambres + espaces extérieurs</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Rapport complet avec photos</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Livraison sous 24h</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                    Demander un devis
+                </a>
+            </div>
+
+            <div class="pricing-card border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white">
+                <h3 class="text-xl font-bold mb-2 text-primary">Maison 4 chambres & plus</h3>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-2xl font-bold text-secondary">Sur devis</span>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>4 chambres et plus</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Grandes surfaces</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Espaces extérieurs complexes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Tarif personnalisé</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                    Demander un devis
+                </a>
+            </div>
+
+            <div class="pricing-card border-2 border-secondary rounded-lg p-6 hover:shadow-lg transition duration-300 bg-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold px-3 py-1 transform rotate-0">
+                    NOUVEAU
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-primary">Service de nettoyage</h3>
+                <div class="flex items-baseline mb-6">
+                    <span class="text-2xl font-bold text-secondary">Sur devis</span>
+                </div>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Nettoyage de sortie</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Nettoyage après travaux</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Tarif selon superficie et état</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                        <span>Service professionnel</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block text-center bg-primary hover:bg-dark text-white font-medium py-2 px-4 rounded-lg transition">
+                    Demander un devis
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-white p-6 rounded-lg border border-secondary shadow-md">
+            <h4 class="text-xl font-semibold mb-4 text-primary">Modalités & engagement</h4>
+            <ul class="space-y-2">
+                <li class="flex items-start">
+                    <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                    <span>Intervention dans un rayon de 30 km de Bruxelles et de Mons, frais kilométriques en supplément au-delà</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                    <span>Rendez-vous planifiés 48 h à l'avance</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                    <span>Livraison des rapports sous 24 h par email (version imprimée disponible sur demande)</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                    <span>Annulation possible jusqu'à 24 h avant, sans frais</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                    <span>En cas de facturation tardive (<24 h avant), frais fixes de 75 €</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 
     <!-- Why Choose Us Section -->
     <section id="why-us" class="py-16 bg-white">
